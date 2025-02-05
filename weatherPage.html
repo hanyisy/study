@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbit&family=Yatra+One&display=swap" rel="stylesheet">
+    <title>날씨정보</title>
+    <link rel="stylesheet" href="css/weatherPage.css"></link>
+</head>
+<body>
+    <section>
+        <div>
+            <div class="mainBox">
+                <div>Today weather</div>
+                <div>
+                    <div id="iconBox">
+                        <span id="iconw"></span>
+                    </div>
+                    <div id="tempBox">
+                        <span id="nowtemp"></span>
+                    </div>
+                    <div class="temps">
+                        <div id="maxTemp">
+                            <span class="orbit-regular">최고 기온</span>
+                            <span id="maxT"></span>
+                        </div>
+                        <div id="minTemp">
+                            <span class="orbit-regular">최저 기온</span>
+                            <span id="minT"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="subBox">
+                <div class="topBox">
+                    <div id="timeBox">
+                        <span id="timeT"></span>
+                        <span id="timeP"></span>
+                    </div>
+                    <div id="todayBox">
+                        <span id="to"></span>
+                    </div>
+                </div>
+                <div class="midBox">
+                    <input type="text" value="seoul" placeholder="영어로 작성 가능합니다" id="cityInput"><button onclick="play()">확인</button>
+                </div>
+                <div class="unBox">
+                    <div class="posisonBox">
+                        <div class="orbit-regular">위치</div>
+                        <span id="citys"></span>
+                    </div>
+                    <div class="weatherBox">
+                        <div class="orbit-regular">날씨</div>
+                        <span id="whe"></span>
+                    </div> 
+                    <div class="windBox">
+                        <div class="orbit-regular">풍속</div>
+                        <span id="wind"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        let temp=document.querySelector('#nowtemp');
+        let maxT = document.querySelector('#maxT');
+        let minT = document.querySelector('#minT');
+        let wind = document.querySelector('#wind');
+        let an = document.querySelector('#citys');
+        let whe = document.querySelector('#whe');
+        let iconW = document.querySelector('#iconw');
+        let API_key="f345d9fa15f0951d6b2f408db3fb8d00";
+        let cityname="seoul";
+        let weather= async()=>{
+            let response= await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=${API_key}&units=metric`);
+            let data=await response.json();
+            console.log(data);
+            temp.textContent=data.main.temp;
+            maxT.textContent=data.main.temp_max;
+            minT.textContent=data.main.temp_min;
+            wind.textContent=data.wind.speed;
+            an.textContent=data.name;
+            whe.textContent=data.weather[0].description;
+            const icon = new Image();
+            iconurl = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
+            icon.src = iconurl;
+            iconW.appendChild(icon);
+        }
+
+        function play(n){
+            let cityInput = document.querySelector('#cityInput').value;
+            cityname = cityInput;
+            iconW.innerHTML="";
+            weather();
+        }
+
+        weather();
+        //날씨 끝-----------------------------------------------
+
+        let timeT = document.querySelector('#timeT');
+        let timeP = document.querySelector('#timeP');
+        let to = document.querySelector('#to');
+        
+        function times(){
+            let now = new Date();
+            let nowD=now.getDay();
+            let nowH=now.getHours();
+            let nowM=now.getMinutes();
+            let nowDay= function(){
+                for(let i=0; i<7; i++){
+                switch (nowD) {
+                        case 0: nowDay ="Sun"; break;
+                        case 1: nowDay ="Mon"; break;
+                        case 2: nowDay ="Tue"; break;
+                        case 3: nowDay ="Wed"; break;
+                        case 4: nowDay ="Thu"; break;
+                        case 5: nowDay ="Fri"; break;
+                        case 6: nowDay ="Sat"; break;
+                }
+                return nowDay;
+                }
+            }
+            let nowHour = function(){
+                if(nowH >= 12){
+                    if(nowM>0){
+                        if(nowH==12){
+                            timeP.innerHTML='PM';
+                            return nowH;
+                        }else{
+                            timeP.innerHTML='PM';
+                            return nowH-12;
+                        }
+                    }else{
+                        timeP.innerHTML='AM';
+                        return nowH;
+                    }
+                }
+            }
+            to.innerHTML=now.getFullYear()+"."+now.getMonth()+"."+now.getDate()+"."+nowDay();
+            timeT.innerHTML=nowHour()+":"+nowM;
+            times();
+        }
+        times();
+
+    </script>
+</body>
+</html>

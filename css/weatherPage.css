@@ -1,0 +1,132 @@
+*{margin: 0; padding: 0; box-sizing: border-box;}
+body{ 
+    overflow: hidden; font-family: "Yatra One"; color: #002763;
+    font-size: 18px;
+}
+.orbit-regular {
+    font-family: "Orbit", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+section{
+    width: 100vw; height: 100vh; 
+    min-width: 900px; min-height: 650px;
+    position: relative;
+    background-image: url(../img/windowimg.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto 110%;
+    display: flex; justify-content: center; align-items: center;
+}
+section>div{
+    width: 80%; height: 80%; overflow: hidden;
+    background-color: rgba(194,230,255,0.5); border: 1px solid #1966d8;
+    border-radius: 2.5em; position: relative;
+}
+.mainBox{
+    width: 40%; height: 100%; 
+    display: flex; flex-direction: column;
+    position: relative;
+}
+.mainBox>div:nth-child(1){
+    width: 90%; height: 5rem; padding: 1rem;
+    position: relative;
+}
+.mainBox>div:nth-child(2){
+    display: flex; flex-direction: column;
+    position: relative; margin-top: 10%;
+}
+#iconBox{
+    width: 100%; height: 10em;
+    display: flex; justify-content: center; align-items: center;
+    position: relative;
+}
+#iconw{
+    transform: scale(2);
+}
+#tempBox{
+    width: 100%; margin-top: 2rem;
+    position: relative; text-align: center;
+}
+#tempBox>span{
+    font-size: 1.7rem;
+}
+.temps{
+    width: 85%; height: 5rem;
+    margin: auto; margin-top: 2rem; 
+    display: flex; justify-content: center; align-items: center;
+}
+.temps>div{
+    width: 48%; 
+    text-align: center; padding: 1.5rem;
+    display: flex; flex-direction: column; justify-content: start;
+}
+.temps>div>span:nth-child(1){
+    font-size: 1rem;
+}
+.temps>div>span:nth-child(2){
+    font-size: 0.9rem;
+}
+#maxTemp{
+    border-right: 1px solid #1966d8;
+}
+.subBox{
+    width: 60%; height: 100%; 
+    background-color: rgba(73, 96, 124, 0.8);
+    position: absolute; top: 0; right: 0;
+}
+.topBox{
+    width: 90%; height: 7rem; margin: auto;
+    border-bottom: 1px solid #ffffff;
+    display: flex; justify-content: space-between; align-items: end;
+}
+#timeBox{
+    width: 30%; display: flex; align-items: end; gap: 0.5em;
+    margin-left: 1em; position: relative;
+}
+#timeT{font-size: 2.5em; position: relative; bottom: -15px;} 
+#todayBox{
+    width: 40%; margin-right: 1em; text-align: right; 
+}
+.midBox{
+    width: 90%; margin: auto; display: flex;
+    justify-content: end; align-items: center;
+    margin-top: 0.5rem; gap: 1rem;
+}
+#cityInput{
+    display: block;
+    width: 10rem; height: 1.5rem; padding: 0 0.5rem;
+    background-color: #ffffff63; color: #002763;
+    border-radius: 5px; border: 1px solid #002763;
+}
+.midBox button{
+    display: block; width: 3rem; height: 1.5rem;
+    background-color: #ffffff63; color: #002763;
+    border-radius: 5px; border: 1px solid #002763;
+    cursor: pointer;
+}
+.midBox button:hover{
+    background-color: #ffffffd8;
+}
+.unBox{
+    width: 90%; margin: auto; margin-top: 2rem;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    gap: 2rem;
+}
+.unBox>div{
+    width: 95%; height: 5em; margin: auto;
+    background-color: rgba(184, 222, 255, 0.627);
+    border-radius: 20px; border: 0.5px solid white;
+    display: flex; align-items: center;
+}
+.unBox>div>div{
+    width: 20%; height: 100%; 
+    display: flex; align-items: center;
+    justify-content: center;
+    border-right: 0.5px solid white;
+    font-size: 1.2rem;
+}
+.unBox>div>span{
+    padding-left: 1rem;
+}
