@@ -1,5 +1,5 @@
 import React from 'react'
-import topData from'../data/tops.json'
+import topData from'../Mainp/reviewList1.json'
 import '../style/main.scss'
 
 const Top = () => {
@@ -10,7 +10,8 @@ const Top = () => {
             {topData.map(item=>(
                 <div className='inbox' key={item.id}> 
                 <img src={item.img}/>
-                <h3>{item.price}원</h3>
+                <h3>{item.Bname}</h3>
+                <h5>{item.price}원</h5>
                 </div>
             ))}
             </div>

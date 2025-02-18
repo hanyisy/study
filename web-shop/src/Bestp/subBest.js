@@ -8,7 +8,7 @@ function subBest() {
         <Router basename="/">
         <div className="subBest">
             <Headp />
-            <Routes>
+            <Routes> 
                 <Route path="/" element={<Home />} />
                 <Route path="/Top" element={<Top />} />
                 <Route path="/Bot" element={<Bot />} />

@@ -5,7 +5,7 @@ import '../style/main.scss'
 const mainSlide = () => {
 return (
     <div className='mainSlide'>
-        여기는 슬라이드다ㅏㅏㅏㅏ
+        <div className='slideBox'><h1>슬라이드를 넣어보자</h1></div>
     </div>
 )
 }

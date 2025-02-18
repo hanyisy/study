@@ -1,0 +1,14 @@
+[
+    {"id":1,
+    "Bname": "작별하지 않는다",
+    "price":16800,
+    "img":"https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9788954682152.jpg"},
+    {"id":2,
+    "Bname": "달러구트 꿈 백화점",
+    "price":28000,
+    "img":"https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791194246442.jpg"},
+    {"id":3,
+    "Bname": "바깥은 여름",
+    "price":14500,
+    "img":"https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9788954646079.jpg"}
+    ]
